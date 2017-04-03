@@ -5,4 +5,6 @@ ENV AB_OFF true
 
 EXPOSE 8080
 
+VOLUME /persistence
+
 ADD target/$JAVA_APP_JAR /deployments/

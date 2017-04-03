@@ -1,5 +1,10 @@
 FROM openjdk:8
 ADD target/java-container.jar /usr/src/myapp/
 WORKDIR /usr/src/myapp
+COPY start.sh /usr/src/myapp
+RUN chmod +x /usr/src/myapp/start.sh
 EXPOSE 8080
-CMD java -XX:+PrintFlagsFinal -XX:+PrintGCDetails $JAVA_OPTIONS -jar java-container.jar
+
+VOLUME /persistence
+
+CMD ["/usr/src/myapp/start.sh"]

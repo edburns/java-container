@@ -2,4 +2,7 @@ FROM openjdk:8
 ADD target/java-container.jar /usr/src/myapp/
 WORKDIR /usr/src/myapp
 EXPOSE 8080
+
+VOLUME /persistence
+
 CMD java -XX:+PrintFlagsFinal -XX:+PrintGCDetails -jar java-container.jar
